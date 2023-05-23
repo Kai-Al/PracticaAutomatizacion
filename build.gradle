@@ -12,6 +12,14 @@ buildscript {
 plugins {
     id 'java'
     id 'idea'
+    id "jacoco"
+    id "org.sonarqube" version "3.5.0.2730"
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
 }
 
 group 'org.example'
@@ -23,7 +31,7 @@ repositories {
 
 ext {
     serenityVersion = '3.7.1'
-            serenityCucumberVersion = '3.7.1'
+    serenityCucumberVersion = '3.7.1'
 }
 dependencies {
     testImplementation "net.serenity-bdd:serenity-core:$rootProject.ext.serenityVersion"
